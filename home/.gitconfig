@@ -1,0 +1,7 @@
+[user]
+	email = j.trew10@gmail.com
+	name = James Trew
+[core]
+	editor = nvim
+[color]
+	ui = true

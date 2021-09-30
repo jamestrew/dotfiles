@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sudo pacman -S base-devel nvidia nvidia-settings
+
+cd ~
+git clone https://aur.archlinux.org/yay.git yay && cd yay && makepkg -si
+
+sudo pacman -S neovim discord flameshot ranger fzf htop kitty zsh \
+    zathura zathura-pdf-poppler fd xclip
+
+
+
+yay brave-bin

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+sudo pacman -S dmenu xmonad xmonad-contrib xmobar trayer wget alsa-utils feh qalculate-gtk picom imwheel
+yay -S nerd-fonts-complete nerd-fonts-mononoki
+
+
+# set locale
+sudo localectl set-locale LANG=en_US.UTF-8
+unset LANG
+source /etc/profile.d/locale.sh
+
+
+# set default audio output
+# $ aplay -l
+# /etc/asound.conf
+
+# pcm.!default {
+#     type hw
+#     card 2
+# }
+
+# ctl.!default {
+#     type hw
+#     card 2
+# }
+
+# restart
