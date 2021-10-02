@@ -124,7 +124,7 @@ export EDITOR='nvim'
 FD_OPTIONS="-a --follow --hidden --exclude .cache --exclude .git --exclude node_modules --exclude yay"
 export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
-export FZF_ALT_C_COMMAND="fd --base-directory ~ --type d $FD_OPTIONS"
+export FZF_ALT_C_COMMAND="fd --base-directory ~ --type d --type l $FD_OPTIONS"
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 alias chtshsh="cht.sh --shell"
