@@ -1,7 +1,7 @@
 Config { font    = "xft:Mononoki Nerd Font:pixelsize=15:antialias=true:hinting=true"
        , bgColor = "#282c34"
        , fgColor = "#ff6c6b"
-       , position = Static { xpos = 0 , ypos = 0, width = 3440, height = 24 }
+       , position = Static { xpos = 0 , ypos = 240, width = 3440, height = 24 }
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True
