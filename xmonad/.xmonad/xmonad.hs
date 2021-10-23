@@ -200,7 +200,7 @@ myLayoutHook = avoidStruts $ mouseResize $ windowArrange $ T.toggleLayouts float
                                  ||| wide
 
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
-myWorkspaces = [" www ", " term", " sys ", " doc ", " dev ", " test ", " chat ", " etc ", " oth "]
+myWorkspaces = [" www ", " term", " sys ", " doc ", " dev ", " work ", " chat ", " etc ", " oth "]
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
@@ -220,7 +220,7 @@ myManageHook = composeAll
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
      , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
      , className =? "discord"         --> doShift ( myWorkspaces !! 6 )
-     , className =? "Microsoft Teams - Preview"         --> doShift ( myWorkspaces !! 6 )
+     , className =? "Microsoft Teams - Preview"         --> doShift ( myWorkspaces !! 5 )
      , className =? ""                --> doShift ( myWorkspaces !! 6 ) -- spotify
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
      , (className =? "brave-browser" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
