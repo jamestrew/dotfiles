@@ -240,7 +240,7 @@ myKeys =
 
 
     -- Useful programs to have a keybinding for launch
-        , ("M-<Return>", spawn (myTerminal))
+        , ("M-o t", spawn (myTerminal))
         , ("M-o b", spawn (myBrowser))
         , ("M-o d", spawn "discord")
         , ("M-o s", spawn "spotify")
