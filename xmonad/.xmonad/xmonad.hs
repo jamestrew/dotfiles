@@ -240,14 +240,15 @@ myKeys =
 
 
     -- Useful programs to have a keybinding for launch
-        , ("M-o t", spawn (myTerminal))
-        , ("M-o b", spawn (myBrowser))
+        , ("M-o t", spawn myTerminal)
+        , ("M-o b", spawn myBrowser)
         , ("M-o d", spawn "discord")
         , ("M-o s", spawn "spotify")
+        , ("M-o r", spawn (myTerminal ++ " -e ranger"))
         , ("M-s s", spawn "flameshot gui")
 
     -- Kill windows
-        , ("M-S-c", kill1)     -- Kill the currently focused client
+        , ("M-c", kill1)     -- Kill the currently focused client
         , ("M-S-a", killAll)   -- Kill all windows on current workspace
 
     -- Workspaces
