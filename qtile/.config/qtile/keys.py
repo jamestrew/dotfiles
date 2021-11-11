@@ -2,6 +2,8 @@ from libqtile.config import Key, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+# TODO: use EzKey -- http://docs.qtile.org/en/latest/manual/config/keys.html#keys
+
 MOD = "mod4"
 SHIFT = "shift"
 CTRL = "control"
