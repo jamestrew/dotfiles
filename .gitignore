@@ -4,3 +4,4 @@ xmonad.hi
 xmonad.o
 /.git
 vlc-qt-interface.conf
+__pycache__/
