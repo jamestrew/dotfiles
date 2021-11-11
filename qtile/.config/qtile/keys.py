@@ -25,8 +25,8 @@ keys = [
     EzKey("M-h", lazy.layout.grow_left(), desc="Grow window to the left"),
     EzKey("M-l", lazy.layout.grow_right(), desc="Grow window to the right"),
     EzKey("M-<KP_Equal>", lazy.layout.normalize(), desc="Reset all window sizes"),
-    EzKey("M-<space>", lazy.layout.toggle_fullscreen(), desc="fullscreen"),
-    EzKey("M-<Tab>", lazy.layout.next_layout(), desc="Toggle between layouts"),
+    EzKey("M-<space>", lazy.window.toggle_fullscreen(), desc="fullscreen"),
+    EzKey("M-<Tab>", lazy.next_layout(), desc="Toggle between layouts"),
     EzKey("M-c", lazy.window.kill(), desc="Kill focused window"),
     # TODO: get all windows in group and kill each
     EzKey("M-S-c", lazy.window.kill(), desc="Kill all windows in group"),
