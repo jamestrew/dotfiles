@@ -53,4 +53,5 @@ export QT_IM_MODULE='uim'
 uim-xim &
 export XMODIFIERS='@im=uim'
 uim-toolbar-gtk3-systray &
+# exec xmonad
 exec qtile start
