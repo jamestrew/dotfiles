@@ -5,19 +5,8 @@ from libqtile.widget.windowname import WindowName
 from libqtile.widget.systray import Systray
 
 from colors import OneDark as c
-from cu import
+from widgets.custom_widgets import basic_sep, line_sep, cpu, ram, clock, audio
 
-colours = [
-    ["#080808", "#080808"],  # Background 0
-    ["#FFFFFF", "#FFFFFF"],  # Foreground 1
-    ["#ABB2BF", "#ABB2BF"],  # Grey Colour 2
-    ["#E35374", "#E35374"],  # 3
-    ["#89CA78", "#89CA78"],  # 4
-    ["#F0C674", "#F0C674"],
-    ["#61AFEF", "#61AFEF"],  # 6
-    ["#D55FDE", "#D55FDE"],
-    ["#2BBAC5", "#2BBAC5"],  # 8
-]
 
 widget_defaults = dict(
     background=c.base00,
