@@ -23,26 +23,33 @@ TAB = "tab"
 
 keys = Keys.keys
 
-groups = [Group(i) for i in "123456789"]
+groups = [
+    Group("www", layout="columns"),
+    Group("term", layout="columns"),
+    Group("sys", layout="columns"),
+    Group("doc", layout="columns"),
+    Group("dev", layout="columns"),
+    Group(
+        "work",
+        layout="columns",
+        matches=[
+            Match(
+                wm_class=[
+                    "Microsoft Teams - Preview",
+                ]
+            )
+        ],
+    ),
+    Group("chat", layout="columns", matches=[Match(wm_class=["discord", ""])]),
+    Group("etc", layout="columns"),
+    Group("oth", layout="columns", matches=[Match(wm_class=["Gimp"])]),
+]
 
-# TODO: move into keys.py
-for i in groups:
-    keys.extend(
-        [
-            Key(
-                [MOD],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
-            ),
-            Key(
-                [MOD, SHIFT],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
-        ]
-    )
+# TODO: double check this is working
+for key, group in zip([1, 2, 3, 4, 5, 6, 7, 8, 9], groups):
+    keys.append(EzKey(f"M-{key}", lazy.group[group.name].toscreen()))
+    keys.append(EzKey(f"M-S-{key}", lazy.window.togroup(group.name)))
+
 
 layout_theme = {
     "border_width": 2,
