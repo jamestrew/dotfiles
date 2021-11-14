@@ -12,14 +12,14 @@ _layout_theme = {
     "border_normal": c.base00,
 }
 layouts = [
-    Columns(num_columns=3, **_layout_theme),
+    Columns(name="cols", num_columns=3, **_layout_theme),
     # Max(),
     # Try more layouts by unleashing below layouts.
     # Stack(num_stacks=2),
     # Bsp(),
     # Matrix(),
     # MonadTall(),
-    MonadWide(**_layout_theme),
+    MonadWide(name="wide", **_layout_theme),
     # layout.RatioTile(),
     # layout.Tile(),
     # layout.TreeTab(),

@@ -22,14 +22,14 @@ TAB = "tab"
 keys = Keys.keys
 
 groups = [
-    Group("www", layout="columns"),
-    Group("term", layout="columns"),
-    Group("sys", layout="columns"),
-    Group("doc", layout="columns"),
-    Group("dev", layout="columns"),
+    Group("www", layout="cols"),
+    Group("term", layout="cols"),
+    Group("sys", layout="cols"),
+    Group("doc", layout="cols"),
+    Group("dev", layout="cols"),
     Group(
         "work",
-        layout="columns",
+        layout="cols",
         matches=[
             Match(
                 wm_class=[
@@ -38,9 +38,9 @@ groups = [
             )
         ],
     ),
-    Group("chat", layout="columns", matches=[Match(wm_class=["discord", ""])]),
-    Group("etc", layout="columns"),
-    Group("oth", layout="columns", matches=[Match(wm_class=["Gimp"])]),
+    Group("chat", layout="cols", matches=[Match(wm_class=["discord", ""])]),
+    Group("etc", layout="cols"),
+    Group("oth", layout="cols", matches=[Match(wm_class=["Gimp"])]),
 ]
 
 # TODO: double check this is working
