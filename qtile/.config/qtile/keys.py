@@ -5,6 +5,8 @@ from libqtile.core.manager import Qtile
 
 from typing import Union
 
+import groups
+
 
 MOD = "mod4"
 SHIFT = "shift"
@@ -85,3 +87,7 @@ keys: list[Union[Key, KeyChord]] = [
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
 ]
+
+for key, group in zip(groups.group_bindings, groups.groups):
+    keys.append(EzKey(f"M-{key}", lazy.group[group.name].toscreen()))
+    keys.append(EzKey(f"M-S-{key}", lazy.window.togroup(group.name)))
