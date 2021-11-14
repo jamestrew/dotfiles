@@ -70,6 +70,7 @@ keys: list[Union[Key, KeyChord]] = [
         "o",
         [
             Key([], "t", lazy.spawn(TERMINAL), desc="Open terminal"),
+            Key([], "r", lazy.spawn(TERMINAL + " -e ranger"), desc="Open ranger"),
             Key([], "b", lazy.spawn(BROWSER), desc="Open browser"),
             Key([], "d", lazy.spawn("discord"), desc="Open discord"),
             Key([], "s", lazy.spawn("spotify"), desc="Open spotify"),
