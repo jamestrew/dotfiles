@@ -8,6 +8,9 @@ from libqtile.widget.pulse_volume import PulseVolume
 
 from colors import OneDark as c
 
+# TODO: add weather
+# TODO: add spotify
+
 basic_sep = Sep(foreground=c.base00, linewidth=4)
 line_sep = Sep(foreground=c.base05, linewidth=1, padding=10)
 
@@ -17,7 +20,7 @@ cpu = (
 )
 
 ram = (
-    TextBox(foreground=c.base0B, fontsize=22, padding=0, text=""),
+    TextBox(foreground=c.base0B, fontsize=22, padding=0, text=" "),
     Memory(foreground=c.base0B, format="{MemPercent:.1f}%", update_interval=1.0),
 )
 

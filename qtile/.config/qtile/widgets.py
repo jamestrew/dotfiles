@@ -5,7 +5,7 @@ from libqtile.widget.windowname import WindowName
 from libqtile.widget.systray import Systray
 
 from colors import OneDark as c
-from cu import
+from widgets.custom_widgets import basic_sep, line_sep, audio, cpu, ram, clock
 
 colours = [
     ["#080808", "#080808"],  # Background 0
@@ -65,7 +65,7 @@ widgets = [
     line_sep,
     *clock,
     Systray(
-        icon_size=14,
+        icon_size=22,
         padding=4,
     ),
     basic_sep
