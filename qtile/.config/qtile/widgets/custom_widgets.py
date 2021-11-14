@@ -3,7 +3,6 @@ from libqtile.widget.sep import Sep
 from libqtile.widget.cpu import CPU
 from libqtile.widget.memory import Memory
 from libqtile.widget.textbox import TextBox
-from libqtile.widget.clock import Clock
 from libqtile.widget.pulse_volume import PulseVolume
 
 from colors import OneDark as c
@@ -44,15 +43,3 @@ audio = (
     ),
 )
 
-clock = (
-    TextBox(
-        foreground=c.base0C,
-        padding=0,
-        fontsize=22,
-        text=" ",
-    ),
-    Clock(
-        foreground=c.base0C,
-        format="%a %b %d  %H:%M:%S",
-    ),
-)

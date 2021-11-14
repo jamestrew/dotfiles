@@ -3,9 +3,10 @@ from libqtile.widget.currentlayout import CurrentLayout
 from libqtile.widget.currentlayout import CurrentLayout
 from libqtile.widget.windowname import WindowName
 from libqtile.widget.systray import Systray
+from libqtile.widget.clock import Clock
 
 from colors import OneDark as c
-from widgets.custom_widgets import basic_sep, line_sep, cpu, ram, clock, audio
+from widgets.custom_widgets import basic_sep, line_sep, cpu, ram, audio
 
 
 widget_defaults = dict(
@@ -52,7 +53,10 @@ widgets = [
     line_sep,
     *audio,
     line_sep,
-    *clock,
+    Clock(
+        foreground=c.base0C,
+        format="%a %b %d  %H:%M:%S",
+    ),
     Systray(
         icon_size=14,
         padding=4,
