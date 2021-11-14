@@ -2,6 +2,5 @@ xmonad-x86_64-linux
 xmonad.errors
 xmonad.hi
 xmonad.o
-/.git
 vlc-qt-interface.conf
 __pycache__/
