@@ -1,16 +1,14 @@
 import os
 import subprocess
 from libqtile import bar, hook
-from libqtile.config import Click, Drag, EzKey, Group, Match, Screen
+from libqtile.config import Click, Drag, Screen
 from libqtile.lazy import lazy
 
 import keys as Keys
 import widgets as Widgets
 import layouts as Layouts
-from colors import OneDark as c
+import groups as Groups
 
-# FIX: set up binds
-# TODO: set up layouts
 # TODO: program hooks
 
 MOD = "mod4"
@@ -20,35 +18,7 @@ TAB = "tab"
 
 
 keys = Keys.keys
-
-groups = [
-    Group("www", layout="cols"),
-    Group("term", layout="cols"),
-    Group("sys", layout="cols"),
-    Group("doc", layout="cols"),
-    Group("dev", layout="cols"),
-    Group(
-        "work",
-        layout="cols",
-        matches=[
-            Match(
-                wm_class=[
-                    "Microsoft Teams - Preview",
-                ]
-            )
-        ],
-    ),
-    Group("chat", layout="cols", matches=[Match(wm_class=["discord", ""])]),
-    Group("etc", layout="cols"),
-    Group("oth", layout="cols", matches=[Match(wm_class=["Gimp"])]),
-]
-
-# TODO: double check this is working
-for key, group in zip([1, 2, 3, 4, 5, 6, 7, 8, 9], groups):
-    keys.append(EzKey(f"M-{key}", lazy.group[group.name].toscreen()))
-    keys.append(EzKey(f"M-S-{key}", lazy.window.togroup(group.name)))
-
-
+groups = Groups.groups
 layouts = Layouts.layouts
 floating_layout = Layouts.floating_layout
 
