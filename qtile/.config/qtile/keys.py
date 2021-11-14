@@ -1,6 +1,9 @@
 from libqtile.config import EzKey, Key, KeyChord
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from libqtile.core.manager import Qtile
+
+from typing import Union
 
 
 MOD = "mod4"
@@ -12,7 +15,16 @@ SPACE = "space"
 TERMINAL: str = guess_terminal("kitty")
 BROWSER: str = "brave"
 
-keys = [
+@lazy.function
+def kill_all(qtile: Qtile):
+    screen_idx = qtile.current_screen.index
+    _, window_ids = qtile.screens[screen_idx].group.items('window')
+    if window_ids is not None:
+        for window_id in window_ids:
+            qtile.windows_map[int(window_id)].kill()
+
+
+keys: list[Union[Key, KeyChord]] = [
     # QTILE
     EzKey("M-S-r", lazy.restart(), desc="Restart Qtile"),
     EzKey("M-S-q", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -47,8 +59,7 @@ keys = [
     EzKey("M-<space>", lazy.window.toggle_fullscreen(), desc="fullscreen"),
     EzKey("M-<Tab>", lazy.next_layout(), desc="Toggle between layouts"),
     EzKey("M-c", lazy.window.kill(), desc="Kill focused window"),
-    # TODO: get all windows in group and kill each
-    EzKey("M-S-c", lazy.window.kill(), desc="Kill all windows in group"),
+    EzKey("M-S-c", kill_all, desc="Kill all windows in group"),
     EzKey("M-w", lazy.to_screen(0), desc="Move to screen 0"),
     EzKey("M-e", lazy.to_screen(1), desc="Move to screen 1"),
     # programs
