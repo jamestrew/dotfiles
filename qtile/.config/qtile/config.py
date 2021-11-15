@@ -1,8 +1,13 @@
 import os
 import subprocess
-from libqtile import bar, hook
-from libqtile.config import Click, Drag, Screen
+from typing import Optional
+from libqtile import bar, hook, qtile
+from libqtile.config import Click, Drag, Screen, Group
 from libqtile.lazy import lazy
+from libqtile.log_utils import logger
+from libqtile.group import _Group
+
+
 
 import keys as Keys
 import widgets as Widgets
@@ -62,3 +67,21 @@ wmname = "LG3D"
 def start_once():
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/startup.sh"])
+
+
+@hook.subscribe.setgroup
+def second_screen_wide_change():
+    screens: list[Optional[Screen]] = qtile.screens
+    if not screens:
+        return
+    if screens[0]:
+        screens[0].group.cmd_setlayout('cols')
+    if screens[1]:
+        screens[1].group.cmd_setlayout('wide')
+
+@hook.subscribe.group_window_add
+def second_screen_wide_init(group: _Group, _):
+    screen: Screen = group.screen
+    if screen and screen.index == 1:
+        screen.group.cmd_setlayout('wide')
+
