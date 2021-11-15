@@ -2,9 +2,8 @@ import os
 import subprocess
 from typing import Optional
 from libqtile import bar, hook, qtile
-from libqtile.config import Click, Drag, Screen, Group
+from libqtile.config import Click, Drag, Screen
 from libqtile.lazy import lazy
-from libqtile.log_utils import logger
 from libqtile.group import _Group
 
 
