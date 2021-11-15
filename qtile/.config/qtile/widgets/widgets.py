@@ -7,7 +7,15 @@ from libqtile.widget.clock import Clock
 
 
 from colors import OneDark as c
-from widgets.custom_widgets import basic_sep, line_sep, cpu, ram, audio, weather
+from widgets.custom_widgets import (
+    basic_sep,
+    line_sep,
+    cpu,
+    ram,
+    audio,
+    weather,
+    spotify,
+)
 
 
 widget_defaults = dict(

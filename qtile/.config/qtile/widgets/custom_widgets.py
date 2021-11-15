@@ -1,4 +1,6 @@
-from libqtile import qtile
+import subprocess
+
+from libqtile import qtile, bar
 from libqtile.widget.sep import Sep
 from libqtile.widget.cpu import CPU
 from libqtile.widget.memory import Memory
@@ -9,6 +11,7 @@ from libqtile.widget.open_weather import (
     OpenWeatherResponseError,
     _OpenWeatherResponseParser,
 )
+from libqtile.widget.base import InLoopPollText, _TextBox
 
 from colors import OneDark as c
 
@@ -16,12 +19,13 @@ from colors import OneDark as c
 
 
 class Icon(_TextBox):
-    def __init__(self, **config):
-        super().__init__(**config)
+    def __init__(self, text=" ", width=bar.CALCULATED, **config):
+        super().__init__(text=text, width=width, **config)
         self.fmt = "{} "
         self.fontsize = 22
         self.padding = 0
         # TODO: add vertical padding?
+
 
 class CustomWeather(OpenWeather):
     symbols = {
@@ -108,5 +112,5 @@ weather = CustomWeather(
     cityid=6167865,
     format="{icon} {main_feels_like:.0f}糖 {humidity} {wind_speed:.0f} ",
     fontsize=16,
-    foreground=c.base0E
+    foreground=c.base0E,
 )
