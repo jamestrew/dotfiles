@@ -47,6 +47,8 @@ widgets = [
     WindowName(
         max_chars=75,
     ),
+    *spotify,
+    line_sep,
     weather,
     line_sep,
     *cpu,

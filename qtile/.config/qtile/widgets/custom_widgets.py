@@ -60,6 +60,17 @@ class CustomWeather(OpenWeather):
         return self.format.format(**data)
 
 
+class Spotify(InLoopPollText):
+    def __init__(self, default_text="N/A", width=bar.CALCULATED, **config):
+        super().__init__(default_text=default_text, width=width, **config)
+        self.update_interval = 10
+
+    def poll(self):
+        script_dir = "/home/jt/.config/qtile/music.sh"
+        out = subprocess.run([script_dir, "/dev/null"], capture_output=True)
+        return out.stdout.decode("utf-8").strip() or "N/A"
+
+
 basic_sep = Sep(foreground=c.base00, linewidth=4)
 line_sep = Sep(foreground=c.base05, linewidth=1, padding=10)
 
@@ -90,6 +101,8 @@ audio = (
         foreground=c.base0D, update_interval=0.1, volume_app="pavucontrol", step=5
     ),
 )
+
+spotify = (Icon(foreground=c.base08, text="阮"), Spotify(foreground=c.base08))
 
 weather = CustomWeather(
     cityid=6167865,
