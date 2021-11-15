@@ -17,10 +17,13 @@ SPACE = "space"
 TERMINAL: str = guess_terminal("kitty")
 BROWSER: str = "brave"
 
+
 @lazy.function
 def kill_all(qtile: Qtile):
+    if qtile.current_screen is None:
+        return
     screen_idx = qtile.current_screen.index
-    _, window_ids = qtile.screens[screen_idx].group.items('window')
+    _, window_ids = qtile.screens[screen_idx].group.items("window")
     if window_ids is not None:
         for window_id in window_ids:
             qtile.windows_map[int(window_id)].kill()
