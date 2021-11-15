@@ -15,6 +15,14 @@ from colors import OneDark as c
 # TODO: add spotify
 
 
+class Icon(_TextBox):
+    def __init__(self, **config):
+        super().__init__(**config)
+        self.fmt = "{} "
+        self.fontsize = 22
+        self.padding = 0
+        # TODO: add vertical padding?
+
 class CustomWeather(OpenWeather):
     symbols = {
         "Unknown": "✨",
@@ -56,17 +64,17 @@ basic_sep = Sep(foreground=c.base00, linewidth=4)
 line_sep = Sep(foreground=c.base05, linewidth=1, padding=10)
 
 cpu = (
-    TextBox(foreground=c.base08, fontsize=22, padding=0, text=" "),
+    Icon(foreground=c.base08, text=""),
     CPU(foreground=c.base08, format="{load_percent: >4}%", update_interval=1.0),
 )
 
 ram = (
-    TextBox(foreground=c.base0B, fontsize=22, padding=0, text=" "),
+    Icon(foreground=c.base0B, text=""),
     Memory(foreground=c.base0B, format="{MemPercent: >4.1f}%", update_interval=1.0),
 )
 
 audio = (
-    TextBox(
+    Icon(
         foreground=c.base0D,
         mouse_callbacks=(
             {
@@ -76,9 +84,7 @@ audio = (
                 "Button5": lambda: qtile.cmd_spawn("pamixer -u -d 5"),
             }
         ),
-        padding=0,
-        fontsize=22,
-        text="墳 ",
+        text="墳",
     ),
     PulseVolume(
         foreground=c.base0D, update_interval=0.1, volume_app="pavucontrol", step=5
