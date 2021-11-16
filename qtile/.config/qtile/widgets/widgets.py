@@ -5,8 +5,17 @@ from libqtile.widget.windowname import WindowName
 from libqtile.widget.systray import Systray
 from libqtile.widget.clock import Clock
 
+
 from colors import OneDark as c
-from widgets.custom_widgets import basic_sep, line_sep, cpu, ram, audio
+from widgets.custom_widgets import (
+    basic_sep,
+    line_sep,
+    cpu,
+    ram,
+    audio,
+    weather,
+    spotify,
+)
 
 
 widget_defaults = dict(
@@ -17,7 +26,6 @@ widget_defaults = dict(
 )
 
 extension_defaults = widget_defaults.copy()
-
 
 widgets = [
     basic_sep,
@@ -47,6 +55,10 @@ widgets = [
     WindowName(
         max_chars=75,
     ),
+    *spotify,
+    line_sep,
+    weather,
+    line_sep,
     *cpu,
     line_sep,
     *ram,
@@ -61,5 +73,5 @@ widgets = [
         icon_size=14,
         padding=4,
     ),
-    basic_sep
+    basic_sep,
 ]
