@@ -1,18 +1,16 @@
 import os
 import subprocess
 from typing import Optional
-from libqtile import bar, hook, qtile
+
+from libqtile import hook, qtile
 from libqtile.config import Click, Drag, Screen
-from libqtile.lazy import lazy
 from libqtile.group import _Group
+from libqtile.lazy import lazy
 
-
-import keys as Keys
 import _widgets as Widgets
-import layouts as Layouts
 import groups as Groups
-
-# TODO: program hooks
+import keys as Keys
+import layouts as Layouts
 
 MOD = "mod4"
 SHIFT = "shift"

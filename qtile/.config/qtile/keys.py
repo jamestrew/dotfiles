@@ -1,12 +1,11 @@
-from libqtile.config import EzKey, Key, KeyChord
-from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
-from libqtile.core.manager import Qtile
-
 from typing import Union
 
-import groups
+from libqtile.config import EzKey, Key, KeyChord
+from libqtile.core.manager import Qtile
+from libqtile.lazy import lazy
+from libqtile.utils import guess_terminal
 
+import groups
 
 MOD = "mod4"
 SHIFT = "shift"
