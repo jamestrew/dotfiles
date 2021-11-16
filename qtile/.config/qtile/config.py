@@ -6,11 +6,11 @@ from libqtile import hook, qtile
 from libqtile.config import Screen
 from libqtile.group import _Group
 
+import _groups as Groups
+import _keys as Keys
+import _layouts as Layouts
 import _mouse as Mouse
 import _widgets as Widgets
-import groups as Groups
-import keys as Keys
-import layouts as Layouts
 
 keys = Keys.keys
 groups = Groups.groups

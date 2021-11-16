@@ -5,7 +5,7 @@ from libqtile.core.manager import Qtile
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-import groups
+import _groups
 
 MOD = "mod4"
 SHIFT = "shift"
@@ -91,6 +91,6 @@ keys: list[Union[Key, KeyChord]] = [
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
 ]
 
-for key, group in zip(groups.group_bindings, groups.groups):
+for key, group in zip(_groups.group_bindings, _groups.groups):
     keys.append(EzKey(f"M-{key}", lazy.group[group.name].toscreen()))
     keys.append(EzKey(f"M-S-{key}", lazy.window.togroup(group.name)))
