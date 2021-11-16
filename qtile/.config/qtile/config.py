@@ -7,9 +7,8 @@ from libqtile.lazy import lazy
 from libqtile.group import _Group
 
 
-
 import keys as Keys
-import widgets as Widgets
+import _widgets as Widgets
 import layouts as Layouts
 import groups as Groups
 
@@ -27,10 +26,11 @@ layouts = Layouts.layouts
 floating_layout = Layouts.floating_layout
 
 widget_defaults = Widgets.widget_defaults
-extension_defaults = widget_defaults.copy()
+screens = [
+    Screen(top=Widgets.main_bar),
+    Screen(top=Widgets.sec_bar),
+]
 
-status_bar = lambda widgets: bar.Bar(widgets, size=24, opacity=1.0)
-screens = [Screen(top=status_bar(Widgets.widgets))]
 
 # Drag floating layouts.
 mouse = [
@@ -74,13 +74,13 @@ def second_screen_wide_change():
     if not screens:
         return
     if screens[0]:
-        screens[0].group.cmd_setlayout('cols')
+        screens[0].group.cmd_setlayout("cols")
     if screens[1]:
-        screens[1].group.cmd_setlayout('wide')
+        screens[1].group.cmd_setlayout("wide")
+
 
 @hook.subscribe.group_window_add
 def second_screen_wide_init(group: _Group, _):
     screen: Screen = group.screen
     if screen and screen.index == 1:
-        screen.group.cmd_setlayout('wide')
-
+        screen.group.cmd_setlayout("wide")
