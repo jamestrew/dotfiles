@@ -1,16 +1,16 @@
 import subprocess
 
-from libqtile import qtile, bar
-from libqtile.widget.sep import Sep
+from libqtile import bar, qtile
+from libqtile.widget.base import InLoopPollText, _TextBox
 from libqtile.widget.cpu import CPU
 from libqtile.widget.memory import Memory
-from libqtile.widget.pulse_volume import PulseVolume
 from libqtile.widget.open_weather import (
     OpenWeather,
     OpenWeatherResponseError,
     _OpenWeatherResponseParser,
 )
-from libqtile.widget.base import InLoopPollText, _TextBox
+from libqtile.widget.pulse_volume import PulseVolume
+from libqtile.widget.sep import Sep
 
 from colors import OneDark as c
 

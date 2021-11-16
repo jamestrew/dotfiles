@@ -45,4 +45,3 @@ class OneDark:
     base0D = "#61afef"
     base0E = "#c678dd"
     base0F = "#be5046"
-

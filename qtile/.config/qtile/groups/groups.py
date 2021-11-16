@@ -22,4 +22,3 @@ groups = [
     Group("etc", layout="cols"),
     Group("oth", layout="cols", matches=[Match(wm_class=["Gimp"])]),
 ]
-

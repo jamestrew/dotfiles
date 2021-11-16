@@ -1,4 +1,5 @@
-from libqtile.config import EzClick as Click, EzDrag as Drag
+from libqtile.config import EzClick as Click
+from libqtile.config import EzDrag as Drag
 from libqtile.lazy import lazy
 
 mouse = [

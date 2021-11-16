@@ -1,22 +1,21 @@
 from libqtile import bar
-from libqtile.widget.groupbox import GroupBox
-from libqtile.widget.currentlayout import CurrentLayout
-from libqtile.widget.currentlayout import CurrentLayout
-from libqtile.widget.windowname import WindowName
-from libqtile.widget.systray import Systray
-from libqtile.widget.clock import Clock
 from libqtile.widget.base import _Widget
+from libqtile.widget.clock import Clock
+from libqtile.widget.currentlayout import CurrentLayout
+from libqtile.widget.groupbox import GroupBox
+from libqtile.widget.systray import Systray
+from libqtile.widget.windowname import WindowName
 
-from colors import OneDark as c
 from _widgets.custom_widgets import (
-    basic_sep,
-    line_sep,
-    cpu,
-    ram,
     audio,
-    weather,
+    basic_sep,
+    cpu,
+    line_sep,
+    ram,
     spotify,
+    weather,
 )
+from colors import OneDark as c
 
 
 def status_bar(widgets: list[_Widget]) -> bar.Bar:
