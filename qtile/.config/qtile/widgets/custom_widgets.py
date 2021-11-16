@@ -4,7 +4,6 @@ from libqtile import qtile, bar
 from libqtile.widget.sep import Sep
 from libqtile.widget.cpu import CPU
 from libqtile.widget.memory import Memory
-from libqtile.widget.textbox import TextBox
 from libqtile.widget.pulse_volume import PulseVolume
 from libqtile.widget.open_weather import (
     OpenWeather,
@@ -14,8 +13,6 @@ from libqtile.widget.open_weather import (
 from libqtile.widget.base import InLoopPollText, _TextBox
 
 from colors import OneDark as c
-
-# TODO: add spotify
 
 
 class Icon(_TextBox):
