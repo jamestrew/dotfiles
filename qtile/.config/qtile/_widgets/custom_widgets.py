@@ -26,26 +26,30 @@ class Icon(_TextBox):
 
 class CustomWeather(OpenWeather):
     symbols = {
-        "Unknown": "✨",
-        "01d": "☀️",
-        "01n": "🌕",
-        "02d": "🌤️",
-        "02n": "☁️",
-        "03d": "🌥️",
-        "03n": "☁️",
-        "04d": "☁️",
-        "04n": "☁️",
-        "09d": "🌧️",
-        "09n": "🌧️",
-        "10d": "⛈",
-        "10n": "⛈",
-        "11d": "🌩",
-        "11n": "🌩",
-        "13d": "❄️",
-        "13n": "❄️",
-        "50d": "🌫",
-        "50n": "🌫",
+        "Unknown": "",
+        "01d": " ",
+        "01n": " ",
+        "02d": " ",
+        "02n": " ",
+        "03d": " ",
+        "03n": " ",
+        "04d": " ",
+        "04n": " ",
+        "09d": " ",
+        "09n": " ",
+        "10d": " ",
+        "10n": " ",
+        "11d": " ",
+        "11n": " ",
+        "13d": "禮",
+        "13n": "禮",
+        "50d": " ",
+        "50n": " ",
     }
+
+    def __init__(self, **config):
+        super().__init__(**config)
+        self.format="{icon} {main_feels_like:.0f}糖 {humidity} {wind_speed:.0f} "
 
     def parse(self, response):
         try:
@@ -92,14 +96,14 @@ audio = (
             {
                 "Button1": lambda: qtile.cmd_spawn("pamixer -t"),
                 # "Button3": lambda: qtile.cmd_spawn("pavucontrol"),
-                "Button4": lambda: qtile.cmd_spawn("pamixer -u -i 5"),
-                "Button5": lambda: qtile.cmd_spawn("pamixer -u -d 5"),
+                "Button4": lambda: qtile.cmd_spawn("pamixer -u -i 1"),
+                "Button5": lambda: qtile.cmd_spawn("pamixer -u -d 1"),
             }
         ),
         text="墳",
     ),
     PulseVolume(
-        foreground=c.base0D, update_interval=0.1, volume_app="pavucontrol", step=5
+        foreground=c.base0D, update_interval=0.1, volume_app="pavucontrol", step=1
     ),
 )
 
@@ -107,7 +111,6 @@ spotify = (Icon(foreground=c.base08, text="阮"), Spotify(foreground=c.base08))
 
 weather = CustomWeather(
     cityid=6167865,
-    format="{icon} {main_feels_like:.0f}糖 {humidity} {wind_speed:.0f} ",
     fontsize=16,
     foreground=c.base0E,
 )

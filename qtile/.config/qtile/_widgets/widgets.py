@@ -73,7 +73,7 @@ main_screen_widgets = [
         format="%a %b %d  %H:%M:%S",
     ),
     Systray(
-        icon_size=14,
+        icon_size=22,
         padding=4,
     ),
     basic_sep,
@@ -114,7 +114,7 @@ sec_screen_widgets = [
         format="%a %b %d  %H:%M:%S",
     ),
     Systray(
-        icon_size=14,
+        icon_size=22,
         padding=4,
     ),
     basic_sep,
