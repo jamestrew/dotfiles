@@ -5,6 +5,7 @@ from libqtile.widget.currentlayout import CurrentLayout
 from libqtile.widget.groupbox import GroupBox
 from libqtile.widget.systray import Systray
 from libqtile.widget.windowname import WindowName
+from libqtile.widget.pomodoro import Pomodoro
 
 from _widgets.custom_widgets import (
     audio,
@@ -58,6 +59,16 @@ main_screen_widgets = [
     WindowName(
         max_chars=75,
     ),
+    Pomodoro(
+        color_inactive=c.base02,
+        color_active=c.base0D,
+        color_break=c.base0B,
+        prefix_inactive="Pomo",
+        prefix_paused="Pomo - Paused",
+        prefix_break="Pomo - Break",
+        prefix_long_break="Pomo - Long Break",
+        ),
+    line_sep,
     *spotify,
     line_sep,
     weather,
