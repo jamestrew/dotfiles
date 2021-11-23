@@ -3,9 +3,9 @@ from libqtile.widget.base import _Widget
 from libqtile.widget.clock import Clock
 from libqtile.widget.currentlayout import CurrentLayout
 from libqtile.widget.groupbox import GroupBox
+from libqtile.widget.pomodoro import Pomodoro
 from libqtile.widget.systray import Systray
 from libqtile.widget.windowname import WindowName
-from libqtile.widget.pomodoro import Pomodoro
 
 from _widgets.custom_widgets import (
     audio,
@@ -67,7 +67,7 @@ main_screen_widgets = [
         prefix_paused="Pomo - Paused ",
         prefix_break="Pomo - Break ",
         prefix_long_break="Pomo - Long Break ",
-        ),
+    ),
     line_sep,
     *spotify,
     line_sep,

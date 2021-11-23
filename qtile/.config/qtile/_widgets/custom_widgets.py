@@ -12,6 +12,7 @@ from libqtile.widget.open_weather import (
 from libqtile.widget.pulse_volume import PulseVolume
 from libqtile.widget.sep import Sep
 
+
 from colors import OneDark as c
 
 
@@ -49,7 +50,7 @@ class CustomWeather(OpenWeather):
 
     def __init__(self, **config):
         super().__init__(**config)
-        self.format="{icon} {main_feels_like:.0f}糖 {humidity} {wind_speed:.0f} "
+        self.format = "{icon} {main_feels_like:.0f}糖 {humidity} {wind_speed:.0f} "
 
     def parse(self, response):
         try:
@@ -68,7 +69,7 @@ class CustomWeather(OpenWeather):
 class Spotify(InLoopPollText):
     def __init__(self, default_text="N/A", width=bar.CALCULATED, **config):
         super().__init__(default_text=default_text, width=width, **config)
-        self.update_interval = 10
+        self.update_interval = 3
 
     def poll(self):
         script_dir = "/home/jt/.config/qtile/music.sh"
