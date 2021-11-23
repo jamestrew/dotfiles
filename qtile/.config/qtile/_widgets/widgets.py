@@ -64,9 +64,9 @@ main_screen_widgets = [
         color_active=c.base0D,
         color_break=c.base0B,
         prefix_inactive="Pomo",
-        prefix_paused="Pomo - Paused",
-        prefix_break="Pomo - Break",
-        prefix_long_break="Pomo - Long Break",
+        prefix_paused="Pomo - Paused ",
+        prefix_break="Pomo - Break ",
+        prefix_long_break="Pomo - Long Break ",
         ),
     line_sep,
     *spotify,
@@ -123,10 +123,6 @@ sec_screen_widgets = [
     Clock(
         foreground=c.base0C,
         format="%a %b %d  %H:%M:%S",
-    ),
-    Systray(
-        icon_size=22,
-        padding=4,
     ),
     basic_sep,
 ]
