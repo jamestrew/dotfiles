@@ -127,44 +127,8 @@ export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
 export FZF_ALT_C_COMMAND="fd --base-directory ~ --type d --type l $FD_OPTIONS"
 
 alias py="python"
-alias ls="exa -la --icons --sort=name"
+# alias ls="exa -la --icons --sort=name"
 alias cat="bat"
-
-tmux_sesh() {
-    selected=`fd -a --base-directory ~/Documents -d 2 --type d | fzf`
-    if [[ -z $selected ]]; then
-        exit 0
-    fi
-
-    session_name=`basename "$selected" | tr . _`
-    if [[ `ls $selected | grep tmux` ]]; then
-        cd $selected
-        worktree=`git worktree list | awk '{print $1}' | fzf`
-        selected=$worktree
-    fi
-
-    tmux_running=$(pgrep tmux)
-    if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
-        tmux new-session -s $session_name -c $selected
-        exit 0
-    fi
-
-    if ! tmux has-session -t $session_name 2> /dev/null; then
-        tmux new-session -ds $session_name -c $selected
-    fi
-
-    if [[ -z $TMUX ]]; then
-        tmux attach-session -t $session_name
-    else
-        tmux switch-client -t $session_name
-    fi
-
-    local ret=$?
-    zle reset-prompt
-    return $ret
-}
-zle     -N   tmux_sesh
-bindkey -s '^F' "~/.config/tmux/tmux-sessionizer.sh\n"
 
 PATH="/home/jt/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/jt/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
