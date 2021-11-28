@@ -68,7 +68,7 @@ keys: list[Union[Key, KeyChord]] = [
     EzKey("M-e", lazy.to_screen(1), desc="Move to screen 1"),
     # programs
     EzKey("M-p", lazy.spawn("dmenu_run -c -l 20"), desc="Run dmenu"),
-    EzKey("M-v", lazy.spawn("clipmenu"), desc="Open clipmenu"),
+    EzKey("M-v", lazy.spawn("clipmenu -c -l 20"), desc="Open clipmenu"),
     KeyChord(
         [MOD],
         "o",
