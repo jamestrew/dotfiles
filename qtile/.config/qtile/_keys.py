@@ -88,7 +88,7 @@ keys: list[Union[Key, KeyChord]] = [
     Key([], "XF86AudioMute", lazy.spawn("amixer set PCM toggle")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl -p spotify play-pause")),
 ]
 
 for key, group in zip(_groups.group_bindings, _groups.groups):

@@ -70,6 +70,7 @@ class Spotify(InLoopPollText):
     def __init__(self, default_text="N/A", width=bar.CALCULATED, **config):
         super().__init__(default_text=default_text, width=width, **config)
         self.update_interval = 3
+        self.add_callbacks({"Button1": lambda: qtile.cmd_spawn("playerctl -p spotify play-pause")})
 
     def poll(self):
         script_dir = "/home/jt/.config/qtile/music.sh"
@@ -93,14 +94,12 @@ ram = (
 audio = (
     Icon(
         foreground=c.base0D,
-        mouse_callbacks=(
-            {
-                "Button1": lambda: qtile.cmd_spawn("pamixer -t"),
-                # "Button3": lambda: qtile.cmd_spawn("pavucontrol"),
-                "Button4": lambda: qtile.cmd_spawn("pamixer -u -i 1"),
-                "Button5": lambda: qtile.cmd_spawn("pamixer -u -d 1"),
-            }
-        ),
+        mouse_callbacks={
+            "Button1": lambda: qtile.cmd_spawn("amixer set PCM toggle"),
+            # "Button3": lambda: qtile.cmd_spawn("pavucontrol"),
+            "Button4": lambda: qtile.cmd_spawn("amixer set PCM 1%+ unmute"),
+            "Button5": lambda: qtile.cmd_spawn("amixer set PCM 1%- unmute"),
+        },
         text="墳",
     ),
     PulseVolume(
