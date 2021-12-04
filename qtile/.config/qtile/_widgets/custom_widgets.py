@@ -73,7 +73,7 @@ class Spotify(InLoopPollText):
         self.add_callbacks({"Button1": lambda: qtile.cmd_spawn("playerctl -p spotify play-pause")})
 
     def poll(self):
-        script_dir = "/home/jt/.config/qtile/music.sh"
+        script_dir = "/home/jt/.config/qtile/scripts/music.sh"
         out = subprocess.run([script_dir, "/dev/null"], capture_output=True)
         return out.stdout.decode("utf-8").strip() or "N/A"
 
