@@ -96,7 +96,7 @@ audio = (
         foreground=c.base0D,
         mouse_callbacks={
             "Button1": lambda: qtile.cmd_spawn("amixer set PCM toggle"),
-            # "Button3": lambda: qtile.cmd_spawn("pavucontrol"),
+            "Button3": lambda: qtile.cmd_spawn("pavucontrol"),
             "Button4": lambda: qtile.cmd_spawn("amixer set PCM 1%+ unmute"),
             "Button5": lambda: qtile.cmd_spawn("amixer set PCM 1%- unmute"),
         },
