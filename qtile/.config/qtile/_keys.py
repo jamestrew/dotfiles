@@ -67,8 +67,8 @@ keys: list[Union[Key, KeyChord]] = [
     EzKey("M-w", lazy.to_screen(0), desc="Move to screen 0"),
     EzKey("M-e", lazy.to_screen(1), desc="Move to screen 1"),
     # programs
-    EzKey("M-p", lazy.spawn("dmenu_run -c -l 20"), desc="Run dmenu"),
-    EzKey("M-v", lazy.spawn("clipmenu -c -l 20"), desc="Open clipmenu"),
+    EzKey("M-p", lazy.spawn("dmenu_run -c -l 20 -fn 'JetBrains Mono-16'"), desc="Run dmenu"),
+    EzKey("M-v", lazy.spawn("clipmenu -c -l 20 'JetBrains Mono-16'"), desc="Open clipmenu"),
     KeyChord(
         [MOD],
         "o",
@@ -78,7 +78,6 @@ keys: list[Union[Key, KeyChord]] = [
             Key([], "b", lazy.spawn(BROWSER), desc="Open browser"),
             Key([], "d", lazy.spawn("discord"), desc="Open discord"),
             Key([], "s", lazy.spawn("spotify"), desc="Open spotify"),
-            Key([], "t", lazy.spawn(TERMINAL), desc="Open Terminal"),
         ],
     ),
     KeyChord([MOD], "s", [Key([], "s", lazy.spawn("flameshot gui"), desc="flameshot")]),
