@@ -141,3 +141,10 @@ export PP='/usr/lib/fpc/3.2.2/ppcx64' # Path to the Free Pascal compiler executa
 export LAZARUSDIR='/usr/lib/lazarus'  # Path to the Lazarus sources.
 export FPCTARGET=''                   # Target operating system for cross compiling.
 export FPCTARGETCPU='x86_64'          # Target CPU for cross compiling.
+
+
+# atuin
+export ATUIN_NOBIND="true"
+export ATUIN_CONFIG_DIR="/home/jt/.config/atuin"
+eval "$(atuin init zsh)"
+bindkey '^r' _atuin_search_widget
