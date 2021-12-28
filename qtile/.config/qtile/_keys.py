@@ -91,5 +91,5 @@ keys: list[Union[Key, KeyChord]] = [
 ]
 
 for key, group in zip(_groups.group_bindings, _groups.groups):
-    keys.append(EzKey(f"M-{key}", lazy.group[group.name].toscreen(switch_group=True)))
-    keys.append(EzKey(f"M-S-{key}", lazy.window.togroup(group.name)))
+    keys.append(EzKey(f"M-{key}", lazy.group[group.name].toscreen(toggle=False)))
+    keys.append(EzKey(f"M-S-{key}", lazy.window.togroup(group.name, switch_group=True)))
