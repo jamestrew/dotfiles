@@ -67,8 +67,16 @@ keys: list[Union[Key, KeyChord]] = [
     EzKey("M-w", lazy.to_screen(0), desc="Move to screen 0"),
     EzKey("M-e", lazy.to_screen(1), desc="Move to screen 1"),
     # programs
-    EzKey("M-p", lazy.spawn("dmenu_run -c -l 20 -fn 'JetBrains Mono-16'"), desc="Run dmenu"),
-    EzKey("M-v", lazy.spawn("clipmenu -c -l 20 -fn 'JetBrains Mono-16'"), desc="Open clipmenu"),
+    EzKey(
+        "M-p",
+        lazy.spawn("dmenu_run -c -l 20 -fn 'JetBrains Mono-16'"),
+        desc="Run dmenu",
+    ),
+    EzKey(
+        "M-v",
+        lazy.spawn("clipmenu -c -l 20 -fn 'JetBrains Mono-16'"),
+        desc="Open clipmenu",
+    ),
     KeyChord(
         [MOD],
         "o",

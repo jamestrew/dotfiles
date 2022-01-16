@@ -7,15 +7,8 @@ from libqtile.widget.pomodoro import Pomodoro
 from libqtile.widget.systray import Systray
 from libqtile.widget.windowname import WindowName
 
-from _widgets.custom_widgets import (
-    audio,
-    basic_sep,
-    cpu,
-    line_sep,
-    ram,
-    spotify,
-    weather,
-)
+from _widgets.custom_widgets import (audio, basic_sep, cpu, line_sep, ram,
+                                     spotify, weather)
 from colors import OneDark as c
 
 

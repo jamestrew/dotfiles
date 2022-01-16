@@ -1,6 +1,7 @@
 from libqtile.config import Match
 from libqtile.layout.columns import Columns
 from libqtile.layout.floating import Floating
+from libqtile.layout.max import Max
 from libqtile.layout.xmonad import MonadWide
 
 from colors import OneDark as c
@@ -13,7 +14,7 @@ _layout_theme = {
 }
 layouts = [
     Columns(name="cols", num_columns=3, **_layout_theme),
-    # Max(),
+    Max(),
     # Try more layouts by unleashing below layouts.
     # Stack(num_stacks=2),
     # Bsp(),

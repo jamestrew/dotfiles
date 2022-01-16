@@ -4,14 +4,11 @@ from libqtile import bar, qtile
 from libqtile.widget.base import InLoopPollText, _TextBox
 from libqtile.widget.cpu import CPU
 from libqtile.widget.memory import Memory
-from libqtile.widget.open_weather import (
-    OpenWeather,
-    OpenWeatherResponseError,
-    _OpenWeatherResponseParser,
-)
+from libqtile.widget.open_weather import (OpenWeather,
+                                          OpenWeatherResponseError,
+                                          _OpenWeatherResponseParser)
 from libqtile.widget.pulse_volume import PulseVolume
 from libqtile.widget.sep import Sep
-
 
 from colors import OneDark as c
 
@@ -70,7 +67,9 @@ class Spotify(InLoopPollText):
     def __init__(self, default_text="N/A", width=bar.CALCULATED, **config):
         super().__init__(default_text=default_text, width=width, **config)
         self.update_interval = 3
-        self.add_callbacks({"Button1": lambda: qtile.cmd_spawn("playerctl -p spotify play-pause")})
+        self.add_callbacks(
+            {"Button1": lambda: qtile.cmd_spawn("playerctl -p spotify play-pause")}
+        )
 
     def poll(self):
         script_dir = "/home/jt/.config/qtile/scripts/music.sh"
