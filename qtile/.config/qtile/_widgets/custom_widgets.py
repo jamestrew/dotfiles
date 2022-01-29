@@ -3,14 +3,28 @@ import subprocess
 from libqtile import bar, qtile
 from libqtile.widget.base import InLoopPollText, _TextBox
 from libqtile.widget.cpu import CPU
+from libqtile.widget.groupbox import GroupBox
 from libqtile.widget.memory import Memory
-from libqtile.widget.open_weather import (OpenWeather,
-                                          OpenWeatherResponseError,
-                                          _OpenWeatherResponseParser)
+from libqtile.widget.open_weather import (
+    OpenWeather,
+    OpenWeatherResponseError,
+    _OpenWeatherResponseParser,
+)
 from libqtile.widget.pulse_volume import PulseVolume
 from libqtile.widget.sep import Sep
 
 from colors import OneDark as c
+
+__all__ = [
+    "group_box",
+    "spotify",
+    "weather",
+    "line_sep",
+    "basic_sep",
+    "cpu",
+    "ram",
+    "audio",
+]
 
 
 class Icon(_TextBox):
@@ -79,6 +93,25 @@ class Spotify(InLoopPollText):
 
 basic_sep = Sep(foreground=c.base00, linewidth=4)
 line_sep = Sep(foreground=c.base05, linewidth=1, padding=10)
+
+group_box = GroupBox(
+    background=c.base00,
+    active=c.base0B,
+    inactive=c.base0D,
+    other_current_screen_border=c.base0A,
+    other_screen_border=c.base05,
+    this_current_screen_border=c.base0E,
+    this_screen_border=c.base05,
+    urgent_border=c.base08,
+    urgent_text=c.base08,
+    disable_drag=True,
+    highlight_method="line",
+    invert_mouse_wheel=True,
+    margin=2,
+    padding=0,
+    rounded=True,
+    urgent_alert_method="text",
+)
 
 cpu = (
     Icon(foreground=c.base08, text=""),

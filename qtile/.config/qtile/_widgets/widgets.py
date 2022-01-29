@@ -2,13 +2,20 @@ from libqtile import bar
 from libqtile.widget.base import _Widget
 from libqtile.widget.clock import Clock
 from libqtile.widget.currentlayout import CurrentLayout
-from libqtile.widget.groupbox import GroupBox
 from libqtile.widget.pomodoro import Pomodoro
 from libqtile.widget.systray import Systray
 from libqtile.widget.windowname import WindowName
 
-from _widgets.custom_widgets import (audio, basic_sep, cpu, line_sep, ram,
-                                     spotify, weather)
+from _widgets.custom_widgets import (
+    audio,
+    basic_sep,
+    cpu,
+    group_box,
+    line_sep,
+    ram,
+    spotify,
+    weather,
+)
 from colors import OneDark as c
 
 
@@ -23,27 +30,9 @@ widget_defaults = dict(
     padding=1,
 )
 
-
 main_screen_widgets = [
     basic_sep,
-    GroupBox(
-        background=c.base00,
-        active=c.base0B,
-        inactive=c.base0D,
-        other_current_screen_border=c.base0A,
-        other_screen_border=c.base05,
-        this_current_screen_border=c.base0E,
-        this_screen_border=c.base05,
-        urgent_border=c.base08,
-        urgent_text=c.base08,
-        disable_drag=True,
-        highlight_method="line",
-        invert_mouse_wheel=True,
-        margin=2,
-        padding=0,
-        rounded=True,
-        urgent_alert_method="text",
-    ),
+    group_box,
     line_sep,
     CurrentLayout(
         foreground=c.base0E,
@@ -85,24 +74,7 @@ main_screen_widgets = [
 
 sec_screen_widgets = [
     basic_sep,
-    GroupBox(
-        background=c.base00,
-        active=c.base0B,
-        inactive=c.base0D,
-        other_current_screen_border=c.base0A,
-        other_screen_border=c.base05,
-        this_current_screen_border=c.base0E,
-        this_screen_border=c.base05,
-        urgent_border=c.base08,
-        urgent_text=c.base08,
-        disable_drag=True,
-        highlight_method="line",
-        invert_mouse_wheel=True,
-        margin=2,
-        padding=0,
-        rounded=True,
-        urgent_alert_method="text",
-    ),
+    group_box,
     line_sep,
     CurrentLayout(
         foreground=c.base0E,
