@@ -5,3 +5,5 @@
 	editor = nvim
 [color]
 	ui = true
+[pull]
+	rebase = true

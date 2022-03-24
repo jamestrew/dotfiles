@@ -49,5 +49,3 @@ export ATUIN_NOBIND="true"
 export ATUIN_CONFIG_DIR="/home/jt/.config/atuin"
 eval "$(atuin init zsh)"
 bindkey '^r' _atuin_search_widget
-
-ta
