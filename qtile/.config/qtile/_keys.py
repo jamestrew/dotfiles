@@ -14,7 +14,7 @@ TAB = "Tab"
 SPACE = "space"
 
 TERMINAL: str = guess_terminal("kitty")
-BROWSER: str = "brave"
+BROWSER: str = "firefox"
 
 
 @lazy.function

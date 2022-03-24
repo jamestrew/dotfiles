@@ -4,5 +4,4 @@ imwheel -b 45
 clipmenud &
 feh --randomize --bg-fill ~/Pictures/wallpapers/*
 discord &
-brave &
-kitty &
+firefox &
