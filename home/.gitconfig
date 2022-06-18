@@ -7,3 +7,5 @@
 	ui = true
 [pull]
 	rebase = true
+[safe]
+	directory = /home/jt/Documents/projects/neovim

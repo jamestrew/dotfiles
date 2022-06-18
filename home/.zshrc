@@ -34,15 +34,7 @@ export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
 export FZF_ALT_C_COMMAND="fd --base-directory ~ --type d --type l $FD_OPTIONS"
 
 alias py="python"
-# alias ls="exa -la --icons --sort=name"
 alias cat="bat"
-
-# Perl stuff
-PATH="/home/jt/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/jt/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/jt/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/jt/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/jt/perl5"; export PERL_MM_OPT;
 
 # atuin
 export ATUIN_NOBIND="true"
