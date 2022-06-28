@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Credits to Waylon Walker
 # https://github.com/WaylonWalker/devtainer/blob/main/bin/.local/bin/ta
 #
