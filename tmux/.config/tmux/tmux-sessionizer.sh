@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 selected=`fd -a --base-directory ~/Documents -d 2 --type d | fzf`
 if [[ -z $selected ]]; then
     exit 0

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 langs=~/.config/tmux/.chtsh-langs
 progs=~/.config/tmux/.chtsh-progs
 selected=`cat "$langs" "$progs" | fzf`
