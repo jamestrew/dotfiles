@@ -1,8 +1,19 @@
 #!/bin/bash
 
-
 cd ~
-git clone https://aur.archlinux.org/yay.git yay && cd yay && makepkg -si
 
-sudo pacman -S discord flameshot ranger fzf htop kitty zsh \
-    zathura zathura-pdf-poppler fd ripgrep xclip
+sudo pacman -S git github-cli discord flameshot ranger fzf htop kitty zsh \
+    zathura zathura-pdf-poppler fd ripgrep xclip tmux
+
+# yay
+git clone https://aur.archlinux.org/yay.git yay && cd yay && makepkg -si
+   
+# neovim
+sudo pacman -S base-devel cmake unzip ninja tree-sitter curl
+mkdir projects && cd projects
+git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+
+
+yay -S nerd-fonts-complete
