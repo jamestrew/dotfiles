@@ -35,6 +35,7 @@ export FZF_ALT_C_COMMAND="fd --base-directory ~ --type d --type l $FD_OPTIONS"
 
 alias py="python"
 alias cat="bat"
+alias ll="ls -lah"
 
 # atuin
 # export ATUIN_NOBIND="true"

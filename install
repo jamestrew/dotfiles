@@ -2,10 +2,48 @@
 
 cd ~
 
+openssh
+stow
+
+# ohmyzsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 sudo pacman -S git github-cli discord flameshot ranger fzf htop kitty zsh \
-    zathura zathura-pdf-poppler fd ripgrep xclip tmux
+    zathura zathura-pdf-poppler fd ripgrep xclip tmux bat npm openssh stow \
+    xsel clipnotify
 
 # yay
 git clone https://aur.archlinux.org/yay.git yay && cd yay && makepkg -si
 
 yay -S nerd-fonts-complete
+
+
+# neovim
+sudo pacman -S base-devel cmake unzip ninja tree-sitter curl
+mkdir -p $HOME/apps
+pushd $HOME/apps
+git clone https://github.com/neovim/neovim
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+	 ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# within nvim, `:lua require'plugins'`
+
+# qtile
+sudo pacman -S python-pip dbus notification-daemon
+pip install psutil
+
+# /usr/share/dbus-1/services/org.freedesktop.systemd1.service
+# [D-BUS Service]
+# Name=org.freedesktop.Notifications
+# Exec=/usr/lib/notification-daemon-1.0/notification-daemon
+
+# dmenu - cd into dmenu directory - `sudo make clean install`
+# clipmenu

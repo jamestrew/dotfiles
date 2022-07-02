@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pacman -S playerctl python-dbus-next clipmenud picom
+sudo pacman -S playerctl python-dbus-next clipmenud picom psutils pavucontrol amixer
