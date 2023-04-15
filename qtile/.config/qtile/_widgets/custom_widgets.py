@@ -15,6 +15,8 @@ from libqtile.widget.sep import Sep
 
 from colors import OneDark as c
 
+from libqtile.log_utils import logger
+
 __all__ = [
     "group_box",
     "spotify",
@@ -123,16 +125,24 @@ ram = (
     Memory(foreground=c.base0B, format="{MemPercent: >4.1f}%", update_interval=1.0),
 )
 
+speaker_on = True
+
+def toggle_speaker():
+    global speaker_on
+    logger.debug(f"toggle_speaker: {speaker_on=}")
+    qtile.cmd_spawn("amixer set PCM toggle")
+    speaker_on = not speaker_on
+
 audio = (
     Icon(
         foreground=c.base0D,
         mouse_callbacks={
-            "Button1": lambda: qtile.cmd_spawn("amixer set PCM toggle"),
+            "Button1": toggle_speaker,
             "Button3": lambda: qtile.cmd_spawn("pavucontrol"),
             "Button4": lambda: qtile.cmd_spawn("amixer set PCM 1%+ unmute"),
             "Button5": lambda: qtile.cmd_spawn("amixer set PCM 1%- unmute"),
         },
-        text="墳",
+        text="墳" if speaker_on else "婢",
     ),
     PulseVolume(
         foreground=c.base0D, update_interval=0.1, volume_app="pavucontrol", step=1

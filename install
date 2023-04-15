@@ -6,7 +6,8 @@ cd ~
 sudo pacman -S git github-cli discord flameshot ranger fzf htop kitty zsh \
     zathura zathura-pdf-poppler fd ripgrep xclip tmux bat npm yarn openssh stow \
     xsel clipnotify nitrogen playerctl python-dbus-next picom psutils \
-    pavucontrol amixer rust os-prober gimp go deluge-gtk vlc
+    pavucontrol alsa-utils rust os-prober gimp go deluge-gtk vlc zsa-wally wget \
+    git-delta
 
 # yay
 git clone https://aur.archlinux.org/yay.git yay && cd yay && makepkg -si
