@@ -10,7 +10,6 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jt/.oh-my-zsh"
-ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
     zsh-autosuggestions
@@ -42,3 +41,5 @@ alias ll="ls -lah"
 # export ATUIN_CONFIG_DIR="/home/jt/.config/atuin"
 # eval "$(atuin init zsh)"
 # bindkey '^r' _atuin_search_widget
+
+eval "$(starship init zsh)"

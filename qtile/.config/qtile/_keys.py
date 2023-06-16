@@ -88,7 +88,7 @@ keys: list[Union[Key, KeyChord]] = [
             Key([], "s", lazy.spawn("spotify"), desc="Open spotify"),
         ],
     ),
-    KeyChord([MOD], "s", [Key([], "s", lazy.spawn("flameshot gui"), desc="flameshot")]),
+    EzKey("M-S-s", lazy.spawn("flameshot gui"), desc="flameshot"),
     # special keys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer set PCM 5%+ unmute")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer set PCM 5%- unmute")),

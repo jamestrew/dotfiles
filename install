@@ -7,12 +7,13 @@ sudo pacman -S git github-cli discord flameshot ranger fzf htop kitty zsh \
     zathura zathura-pdf-poppler fd ripgrep xclip tmux bat npm yarn openssh stow \
     xsel clipnotify nitrogen playerctl python-dbus-next picom psutils \
     pavucontrol alsa-utils rust os-prober gimp go deluge-gtk vlc zsa-wally wget \
-    git-delta
+    git-delta ttf-jetbrains-mono ttf-nerd-fonts-symbols ttf-joypixels adobe-source-han-sans-jp-fonts \
+    starship docker screenkey slop peek
 
 # yay
 git clone https://aur.archlinux.org/yay.git yay && cd yay && makepkg -si
 
-yay -S nerd-fonts-complete spotify
+yay -S spotify
 
 # ohmyzsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -24,20 +25,16 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 # neovim
 sudo pacman -S base-devel cmake unzip ninja tree-sitter curl
-mkdir -p $HOME/apps
-pushd $HOME/apps
+mkdir -p $HOME/projects
+pushd $HOME/projects
 git clone https://github.com/neovim/neovim
 cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
-	 ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
-# within nvim, `:lua require'plugins'`
 
 # qtile
 sudo pacman -S python-pip dbus notification-daemon
-pip install psutil
+pip install psutil python-psutil
 
 # /usr/share/dbus-1/services/org.freedesktop.systemd1.service
 # [D-BUS Service]

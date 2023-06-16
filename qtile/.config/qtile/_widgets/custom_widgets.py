@@ -55,15 +55,15 @@ class CustomWeather(OpenWeather):
         "10n": " ",
         "11d": " ",
         "11n": " ",
-        "13d": "禮",
-        "13n": "禮",
+        "13d": "󰒷",
+        "13n": "󰒷",
         "50d": " ",
         "50n": " ",
     }
 
     def __init__(self, **config):
         super().__init__(**config)
-        self.format = "{icon} {main_feels_like:.0f}糖 {humidity} {wind_speed:.0f} "
+        self.format = "{icon} {main_feels_like:.0f}󰔄 {humidity} {wind_speed:.0f} "
 
     def parse(self, response):
         try:
@@ -116,12 +116,12 @@ group_box = GroupBox(
 )
 
 cpu = (
-    Icon(foreground=c.base08, text=""),
+    Icon(foreground=c.base08, text="󰍛"),
     CPU(foreground=c.base08, format="{load_percent: >4}%", update_interval=1.0),
 )
 
 ram = (
-    Icon(foreground=c.base0B, text=""),
+    Icon(foreground=c.base0B, text="󰉉"),
     Memory(foreground=c.base0B, format="{MemPercent: >4.1f}%", update_interval=1.0),
 )
 
@@ -142,14 +142,14 @@ audio = (
             "Button4": lambda: qtile.cmd_spawn("amixer set PCM 1%+ unmute"),
             "Button5": lambda: qtile.cmd_spawn("amixer set PCM 1%- unmute"),
         },
-        text="墳" if speaker_on else "婢",
+        text="󰕾" if speaker_on else "󰖁",
     ),
     PulseVolume(
         foreground=c.base0D, update_interval=0.1, volume_app="pavucontrol", step=1
     ),
 )
 
-spotify = (Icon(foreground=c.base08, text="阮"), Spotify(foreground=c.base08))
+spotify = (Icon(foreground=c.base08, text="󰓇"), Spotify(foreground=c.base08))
 
 weather = CustomWeather(
     cityid=6167865,
