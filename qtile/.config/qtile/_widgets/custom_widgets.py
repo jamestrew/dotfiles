@@ -10,7 +10,8 @@ from libqtile.widget.open_weather import (
     OpenWeatherResponseError,
     _OpenWeatherResponseParser,
 )
-from libqtile.widget.pulse_volume import PulseVolume
+
+# from libqtile.widget.pulse_volume import PulseVolume
 from libqtile.widget.sep import Sep
 
 from colors import OneDark as c
@@ -96,24 +97,27 @@ class Spotify(InLoopPollText):
 basic_sep = Sep(foreground=c.base00, linewidth=4)
 line_sep = Sep(foreground=c.base05, linewidth=1, padding=10)
 
-group_box = GroupBox(
-    background=c.base00,
-    active=c.base0B,
-    inactive=c.base0D,
-    other_current_screen_border=c.base0A,
-    other_screen_border=c.base05,
-    this_current_screen_border=c.base0E,
-    this_screen_border=c.base05,
-    urgent_border=c.base08,
-    urgent_text=c.base08,
-    disable_drag=True,
-    highlight_method="line",
-    invert_mouse_wheel=True,
-    margin=2,
-    padding=0,
-    rounded=True,
-    urgent_alert_method="text",
-)
+
+def group_box() -> GroupBox:
+    return GroupBox(
+        background=c.base00,
+        active=c.base0B,
+        inactive=c.base0D,
+        other_current_screen_border=c.base0A,
+        other_screen_border=c.base05,
+        this_current_screen_border=c.base0E,
+        this_screen_border=c.base05,
+        urgent_border=c.base08,
+        urgent_text=c.base08,
+        disable_drag=True,
+        highlight_method="line",
+        invert_mouse_wheel=True,
+        margin=2,
+        padding=0,
+        rounded=True,
+        urgent_alert_method="text",
+    )
+
 
 cpu = (
     Icon(foreground=c.base08, text="󰍛"),
@@ -127,11 +131,13 @@ ram = (
 
 speaker_on = True
 
+
 def toggle_speaker():
     global speaker_on
     logger.debug(f"toggle_speaker: {speaker_on=}")
     qtile.cmd_spawn("amixer set PCM toggle")
     speaker_on = not speaker_on
+
 
 audio = (
     Icon(
@@ -144,9 +150,9 @@ audio = (
         },
         text="󰕾" if speaker_on else "󰖁",
     ),
-    PulseVolume(
-        foreground=c.base0D, update_interval=0.1, volume_app="pavucontrol", step=1
-    ),
+    # PulseVolume(
+    #     foreground=c.base0D, update_interval=0.1, volume_app="pavucontrol", step=1
+    # ),
 )
 
 spotify = (Icon(foreground=c.base08, text="󰓇"), Spotify(foreground=c.base08))

@@ -48,11 +48,20 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-xrandr --output DP-1 --primary --mode 3440x1440 --pos 0x1080 --rotate normal --output DP-2 --off --output DP-3 --off --output HDMI-1 --mode 1920x1080 --pos 760x0 --rotate normal
+{
+  sleep 1;
+  xrandr \
+  --output HDMI-A-0 --mode 1920x1080 --pos 760x0 --rotate normal \
+  --output DisplayPort-1 --mode 3440x1440 --pos 0x1080 --rotate normal \
+  --output DisplayPort-0 --off \
+  --output DisplayPort-2 --off
+}
 export GTK_IM_MODULE='uim'
 export QT_IM_MODULE='uim'
 uim-xim &
 export XMODIFIERS='@im=uim'
 uim-toolbar-gtk3-systray &
+udiskie &
+imwheel -b "45"
 # exec xmonad
 exec qtile start

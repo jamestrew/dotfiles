@@ -82,10 +82,11 @@ keys: list[Union[Key, KeyChord]] = [
         "o",
         [
             Key([], "t", lazy.spawn(TERMINAL), desc="Open terminal"),
-            Key([], "r", lazy.spawn(TERMINAL + " -e ranger"), desc="Open ranger"),
+            Key([], "r", lazy.spawn(TERMINAL + " -e yazi"), desc="Open yazi"),
             Key([], "b", lazy.spawn(BROWSER), desc="Open browser"),
             Key([], "d", lazy.spawn("discord"), desc="Open discord"),
             Key([], "s", lazy.spawn("spotify"), desc="Open spotify"),
+            Key([], "o", lazy.spawn("obsidian"), desc="Open obsidian"),
         ],
     ),
     EzKey("M-S-s", lazy.spawn("flameshot gui"), desc="flameshot"),
@@ -95,7 +96,7 @@ keys: list[Union[Key, KeyChord]] = [
     Key([], "XF86AudioMute", lazy.spawn("amixer set PCM toggle")),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
-    Key([], "XF86AudioPlay", lazy.spawn("playerctl -p spotify play-pause")),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
 ]
 
 for key, group in zip(_groups.group_bindings, _groups.groups):

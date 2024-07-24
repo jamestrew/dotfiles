@@ -20,3 +20,7 @@
 	rebase = true
 [http]
 	cookiefile = /home/jt/.gitcookies
+[alias]
+	bb = !better-git-branch.sh
+[rerere]
+	enabled = true

@@ -6,7 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.local/share/nvim/mason/bin:$PATH
+export CDPATH=$HOME/.local/share/nvim/:$CDPATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/jt/.oh-my-zsh"
@@ -15,14 +16,10 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     fzf
-    rand-quote
     pipenv
 )
 
 source $ZSH/oh-my-zsh.sh
-
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 
 export EDITOR='nvim'
@@ -32,14 +29,21 @@ export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
 export FZF_ALT_C_COMMAND="fd --base-directory ~ --type d --type l $FD_OPTIONS"
 
-alias py="python"
 alias cat="bat"
 alias ll="ls -lah"
 
-# atuin
-# export ATUIN_NOBIND="true"
-# export ATUIN_CONFIG_DIR="/home/jt/.config/atuin"
-# eval "$(atuin init zsh)"
-# bindkey '^r' _atuin_search_widget
-
+eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"
+
+gch() {
+ git checkout "$(git branch --all | fzf| tr -d '[:space:]')"
+}
+
+testing() {
+  mkdir -p /tmp/testing
+  cd /tmp/testing
+  cp /home/jt/.config/nvim/minimal_init.lua /tmp/testing/min.lua
+}
+
+source ~/.secrets
+ta

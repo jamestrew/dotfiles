@@ -4,6 +4,7 @@ from libqtile.widget.clock import Clock
 from libqtile.widget.currentlayout import CurrentLayout
 from libqtile.widget.pomodoro import Pomodoro
 from libqtile.widget.systray import Systray
+from libqtile.widget.statusnotifier import StatusNotifier
 from libqtile.widget.windowname import WindowName
 
 from _widgets.custom_widgets import (
@@ -32,7 +33,7 @@ widget_defaults = dict(
 
 main_screen_widgets = [
     basic_sep,
-    group_box,
+    group_box(),
     line_sep,
     CurrentLayout(
         foreground=c.base0E,
@@ -74,7 +75,7 @@ main_screen_widgets = [
 
 sec_screen_widgets = [
     basic_sep,
-    group_box,
+    group_box(),
     line_sep,
     CurrentLayout(
         foreground=c.base0E,
@@ -88,6 +89,10 @@ sec_screen_widgets = [
     Clock(
         foreground=c.base0C,
         format="%a %b %d  %H:%M:%S",
+    ),
+    StatusNotifier(
+        icon_size=22,
+        padding=4,
     ),
     basic_sep,
 ]
