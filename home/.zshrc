@@ -45,5 +45,7 @@ testing() {
   cp /home/jt/.config/nvim/minimal_init.lua /tmp/testing/min.lua
 }
 
+export DOCGEN_PATH=$HOME/projects/docgen.nvim
+
 source ~/.secrets
 ta
